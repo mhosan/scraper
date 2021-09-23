@@ -1,0 +1,6 @@
+links = //h2[@class="headline"]/a/@href
+linksCompleto = //h2[@data-h="17"]/a/@href
+titulo = //h2[@data-h="45"]/span/text()
+resumen = //div[@class="lead"]/p/text()
+cuerpo = //div[@class="html-content"]/p/text()
+
