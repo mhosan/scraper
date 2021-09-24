@@ -1,7 +1,0 @@
-La fintech MOVii implementó el botón PSE como medio para realizar los pagos
-
-Los más de 1,8 millones de usuarios de la fintech tendrán acceso a esta alternativa, utilizada por 14.000 empresas para recibir pagos
-
-MOVii ahora permite hacer pagos por el botón PSE, con lo cual los usuarios tienen más opciones para utilizar su dinero.
-Según la entidad, esto abre un universo de posibilidades para los más de 1,8 millones de usuarios de la fintech, quienes tendrán la alternativa de pagar o hacer compras por internet en todos los sectores económicos. Son cerca de 14.000 las empresas que usan en PSE para recibir los pagos.
-“Sabíamos que era un servicio que nuestros usuarios deseaban. Trabajamos con ACH para que MOVii haga parte de la lista de instituciones financieras que permiten pagos a través de PSE. Con este producto le permitimos a nuestros clientes realizar compras en internet y eso nos lleva a estar presentes en todas las pasarelas de pagos; además que abarcaremos un gran porcentaje de los e-commerce del país. Seguimos sumando más servicios como los que hemos anunciado este año, por ejemplo, los giros internacionales o el piloto de la Arenera de criptoactivos”, afirmó Mónica Saavedra, Gerente de Producto de MOVii, en un comunicado.
