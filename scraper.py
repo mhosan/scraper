@@ -6,8 +6,10 @@ import datetime  #manejo de fechas
 
 original_stdout = sys.stdout
 
-HOME_URL = 'https://www.larepublica.co/'
-XPATH_LINK_TO_ARTICLE = '//text-fill[not(@class)]/a/@href'
+HOME_URL = 'https://www.clarin.com/'
+XPATH_LINK_TO_ARTICLE_MAIN = '//article[@class="content-nota list-format twoxone_no_foto"]/a[@class="link_article"]/@href'
+XPATH_LINK_TO_ARTICLE_SECONDARY = '//article[@class="content-nota list-format onexone_no_foto no-p"]/a[@class="link_article"]/@href'
+XPATH_LINK_TO_ARTICLE_SECONDARY_FOTO = '//article[@class="content-nota onexone_foto    list-format flex-change"]/a[@class="link_article"]/@href'
 XPATH_TITLE = '//div[@class="mb-auto"]/text-fill/span/text()'
 XPATH_SUMMARY = '//div[@class="lead"]/p/text()'
 XPATH_BODY = '//div[@class="html-content"]/p/text()'
@@ -44,7 +46,6 @@ def parse_notice(link, today):
         print(ve)
 
 
-#def parse_home():
 try:
     response = requests.get(HOME_URL)
     if response.status_code == 200:
@@ -54,15 +55,15 @@ try:
         #    print(home)
         #    sys.stdout = original_stdout
         parsed = html.fromstring(home)
-        links_to_notices = parsed.xpath(XPATH_LINK_TO_ARTICLE)
-        #print (links_to_notices)
-        #print (f'La lista tiene {len(links_to_notices)} elementos. Elemento 0: {links_to_notices[0]}')
+        links_to_notices = parsed.xpath(XPATH_LINK_TO_ARTICLE_SECONDARY_FOTO)
+        print (links_to_notices)
+        print (f'La lista tiene {len(links_to_notices)} elementos. Elemento 0: {links_to_notices[0]}')
         
         today = datetime.date.today().strftime('%d-%m-%Y')
-        if not os.path.isdir(today):
-            os.mkdir(today)
-        for link in links_to_notices:
-            parse_notice(link, today)
+        #if not os.path.isdir(today):
+        #    os.mkdir(today)
+        #for link in links_to_notices:
+        #    parse_notice(link, today)
     else:
         raise ValueError(f'Error: {response.status_code}')
 except ValueError as ve:
