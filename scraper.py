@@ -6,12 +6,14 @@ import datetime  #manejo de fechas
 
 original_stdout = sys.stdout
 
-HOME_URL = 'https://www.clarin.com/'
+#supermercado Vea, categoria: Leche
+HOME_URL = 'https://www.vea.com.ar/leche?map=ft'
 
-#Links de los titulares principales y secundarios (los secundarios con y sin foto)
-XPATH_LINK_TO_ARTICLE_MAIN = '//article[@class="content-nota list-format twoxone_no_foto"]/a[@class="link_article"]/@href'
-XPATH_LINK_TO_ARTICLE_SECONDARY = '//article[@class="content-nota list-format onexone_no_foto no-p"]/a[@class="link_article"]/@href'
-XPATH_LINK_TO_ARTICLE_SECONDARY_FOTO = '//article[@class="content-nota onexone_foto    list-format flex-change"]/a[@class="link_article"]/@href'
+XPATH_HOW_MANY_PRODUCTS = '//div[@class="vtex-search-result-3-x-totalProducts--layout pv5 ph9 bn-ns bt-s b--muted-5 tc-s tl t-action--small"]/span/text()'
+#
+#XPATH_LINK_TO_ARTICLE_MAIN = '//article[@class="content-nota list-format twoxone_no_foto"]/a[@class="link_article"]/@href'
+#XPATH_LINK_TO_ARTICLE_SECONDARY = '//article[@class="content-nota list-format onexone_no_foto no-p"]/a[@class="link_article"]/@href'
+#XPATH_LINK_TO_ARTICLE_SECONDARY_FOTO = '//article[@class="content-nota onexone_foto    list-format flex-change"]/a[@class="link_article"]/@href'
 
 #titulos de las notas del los titulares
 XPATH_TITLE_MAIN = '//div[@class="title"]/h1[@id="title"]/text()'
