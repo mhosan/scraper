@@ -7,9 +7,7 @@ import datetime  #manejo de fechas
 original_stdout = sys.stdout
 
 HOME_URL = 'https://www.larepublica.co/'
-HOME_URL2 = 'https://www.clarin.com/'
 XPATH_LINK_TO_ARTICLE = '//text-fill[not(@class)]/a/@href'
-XPATH_LINK_TO_ARTICLE2 = '//article[@class="content-nota list-format twoxone_no_foto"]/a[@class="link_article"]/@href'
 XPATH_TITLE = '//div[@class="mb-auto"]/text-fill/span/text()'
 XPATH_SUMMARY = '//div[@class="lead"]/p/text()'
 XPATH_BODY = '//div[@class="html-content"]/p/text()'
@@ -69,10 +67,4 @@ try:
         raise ValueError(f'Error: {response.status_code}')
 except ValueError as ve:
     print(ve)
-
-#def run():
-#    parse_home()
-
-#if __name__ == __main__:
-#    run()
 

@@ -1,0 +1,12 @@
+Se registraron 890.000 nuevos accesos a internet fijo según cifras del Ministerio de las TIC
+
+Según el informe del MinTIC, 75% de los accesos a internet móvil fue realizado con el uso de tecnología 4G durante el primer trimestre
+
+El Ministerio de las TIC publicó un boletín con las cifras del sector en el primer trimestre de 2021 donde reveló los datos de los servicios de telecomunicaciones, con los reportes periódicos que realizan los Proveedores de Redes y Servicios TIC.
+Uno de ellos es que el total de accesos fijos a internet en Colombia alcanzó los 8,05 millones, con un total de 890.000 accesos nuevos, lo que representó un incremento de 12,43% frente al mismo periodo del año anterior, cuando se registraron 7,16 millones.
+Aunque hubo una mejora en la velocidad de descarga con relación al mismo período en 2020, con un aumento alrededor de 15 Mbps, llegando a los 39,5 Mbps a nivel nacional, sigue habiendo grandes dificultades en las áreas rurales del país.
+La brecha es significativa, mientras Bogotá lidera la lista, con 44,5 Mbps; Amazonas, San Andrés, Guainía, Vichada y Vaupés tienen los peores indicadores sin superar si quiera 5 Mbps de velocidad.
+Esos mismos departamentos tienen retos enormes de infraestructura: mientras que en Bogotá, por cada 100 habitantes, hay 27,15 accesos de internet fijo; en estas regiones no se supera los 3,28 accesos por la misma cantidad de personas.
+Respecto al acceso móvil a internet, el total alcanzó los 32,9 millones al término del primer trimestre de 2021, superando los 29,8 millones en el mismo periodo del año anterior, con 3,1 millones de accesos más.
+Según el informe del MinTIC, 75% de los accesos a internet móvil fue realizado con el uso de tecnología 4G durante el primer trimestre. Asimismo, el reporté indicó que hay 69,4 millones de líneas de telefonía móvil y dos de cada 10 son planes pospago.
+Con la inauguración del Centro de Monitoreo y Analítica de Datos del Ministerio de las TIC, se dieron a conocer proyecciones según las cuales el país podría superar 70% de conectividad antes de que acabe el periodo de mandato del presidente Iván Duque. Sin embargo, las cifras son muy ambiciosas teniendo en cuenta los retos a los que se enfrentan varios departamentos y regiones del país.
