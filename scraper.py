@@ -88,7 +88,6 @@ try:
         for link in links_to_notices:
             link = 'https://www.clarin.com' + link 
             parse_notice(link, today)
-            
     else:
         raise ValueError(f'Error: {response.status_code}')
 except ValueError as ve:
