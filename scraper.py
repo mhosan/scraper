@@ -58,8 +58,8 @@ def parse_products(link, today, contador):
                 print(f'El precio (parte decimal) es: {precioDecimal}')
             except  IndexError as ie:
                 print(f'El error es: {ie}')
-            #with open(f'{today}/Vea.txt', 'w', encoding='utf-8') as f:
-            #    f.write(f'{descripcion}: ${precioEntero},{precioDecimal}')
+            with open(f'{today}/Vea.txt', 'a', encoding='utf-8') as f:
+                f.write(f'{descripcion}: ${precioEntero},{precioDecimal} \n')
         else:
             raise ValueError(f'Error: {response.status_code}')
     except ValueError as ve:
