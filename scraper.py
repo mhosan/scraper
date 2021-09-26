@@ -56,8 +56,8 @@ def parse_products(link, today, contador):
                 print(f'El precio (parte entera) es: {precioEntero}')
                 precioDecimal = parsed.xpath(XPATH_PRODUCT_PRICE_DECIMAL)[0]
                 print(f'El precio (parte decimal) es: {precioDecimal}')
-            except IndexError as ie:
-                print(f'El error: {ie}')
+            except  IndexError as ie:
+                print(f'El error es: {ie}')
             #with open(f'{today}/Vea.txt', 'w', encoding='utf-8') as f:
             #    f.write(f'{descripcion}: ${precioEntero},{precioDecimal}')
         else:
