@@ -9,6 +9,11 @@ original_stdout = sys.stdout
 #supermercado Vea, categoria: Leche
 HOME_URL = 'https://www.vea.com.ar/leche?map=ft'
 XPATH_HOW_MANY_PRODUCTS = '//div[@class="vtex-search-result-3-x-totalProducts--layout pv5 ph9 bn-ns bt-s b--muted-5 tc-s tl t-action--small"]/span/text()'
+XPATH_PRODUCTS_LIST = '//section[@class="vtex-product-summary-2-x-container vtex-product-summary-2-x-containerNormal overflow-hidden br3 h-100 w-100 flex flex-column justify-between center tc" and @style="max-width:300px"]//a/@href'
+XPATH_PRODUCT_DESCRIPTION = '//h1[@class="vtex-store-components-3-x-productNameContainer mv0 t-heading-4"]/span/text()'
+XPATH_PRODUCT_PRICE_INTEGER = '//span[@class="vtex-product-price-1-x-currencyContainer vtex-product-price-1-x-currencyContainer--shelf-main-selling-price"]/span[@class="vtex-product-price-1-x-currencyInteger vtex-product-price-1-x-currencyInteger--shelf-main-selling-price"]/text()'
+XPATH_PRODUCT_PRICE_DECIMAL = '//span[@class="vtex-product-price-1-x-currencyContainer vtex-product-price-1-x-currencyContainer--shelf-main-selling-price"]/span[@class="vtex-product-price-1-x-currencyFraction vtex-product-price-1-x-currencyFraction--shelf-main-selling-price"]/text()'
+
 #
 #XPATH_LINK_TO_ARTICLE_MAIN = '//article[@class="content-nota list-format twoxone_no_foto"]/a[@class="link_article"]/@href'
 #XPATH_LINK_TO_ARTICLE_SECONDARY = '//article[@class="content-nota list-format onexone_no_foto no-p"]/a[@class="link_article"]/@href'
@@ -24,21 +29,24 @@ XPATH_HOW_MANY_PRODUCTS = '//div[@class="vtex-search-result-3-x-totalProducts--l
 #XPATH_BODY_MAIN = '//div[@class="body-nota"]/p/text()'
 
 
-def parse_notice(link, today):
+def parse_products(link, today):
     try:
         #print ('\n\n')
-        #print(f'El link del titular de la nota es: {link}')
+        #print(f'El link es: {link}')
         response = requests.get(link)
         if response.status_code == 200:
-            notice = response.content.decode('utf-8')
-            notice = notice.replace('\"', '')
+            producto = response.content.decode('utf-8')
+            producto = producto.replace('\"', '')
             """
             with open ('noticiasPpales.txt', 'w') as file:
                 sys.stdout = file
                 print(notice)
                 sys.stdout = original_stdout
             """
-            parsed = html.fromstring(notice)
+            #with open(f'paginaVeaLechesListado.txt', 'w', encoding='utf-8') as f:
+            #    f.write(producto)
+            #    f.write('\n\n')
+            parsed = html.fromstring(producto)
             try:
                 title = parsed.xpath(XPATH_TITLE_MAIN)[0]
                 title = title.replace('\"', '')
@@ -85,18 +93,18 @@ try:
         """
         parsed = html.fromstring(home)
         totalProductos = parsed.xpath(XPATH_HOW_MANY_PRODUCTS)[0]
-        print ('\n')
         print (f'Total de productos: {totalProductos}')
         print ('\n')
-        #print (f'La lista tiene {len(links_to_notices)} elementos.')
+        listadoProductos= parsed.xpath(XPATH_PRODUCTS_LIST)
+        print(listadoProductos)
+        print (f'La lista de productos tiene {len(listadoProductos)} elementos.')
         today = datetime.date.today().strftime('%d-%m-%Y')
-        """
         if not os.path.isdir(today):
             os.mkdir(today)
-        for link in links_to_notices:
-            link = 'https://www.clarin.com' + link 
-            parse_notice(link, today)
-        """
+        for link in listadoProductos:
+            link = 'https://www.vea.com.ar' + link 
+            parse_products(link, today)
+            break
     else:
         raise ValueError(f'Error: {response.status_code}')
 except ValueError as ve:
