@@ -1,14 +1,13 @@
 import requests
-import lxml.html as html
+import lxml.html as html    #para xpath
 import sys
-import os #para crear carpetas
-import datetime  #manejo de fechas
+import os                   #para crear carpetas
+import datetime             #manejo de fechas
 
 original_stdout = sys.stdout
 
 #supermercado Vea, categoria: Leche
 HOME_URL = 'https://www.vea.com.ar/leche?map=ft'
-
 XPATH_HOW_MANY_PRODUCTS = '//div[@class="vtex-search-result-3-x-totalProducts--layout pv5 ph9 bn-ns bt-s b--muted-5 tc-s tl t-action--small"]/span/text()'
 #
 #XPATH_LINK_TO_ARTICLE_MAIN = '//article[@class="content-nota list-format twoxone_no_foto"]/a[@class="link_article"]/@href'
@@ -16,13 +15,13 @@ XPATH_HOW_MANY_PRODUCTS = '//div[@class="vtex-search-result-3-x-totalProducts--l
 #XPATH_LINK_TO_ARTICLE_SECONDARY_FOTO = '//article[@class="content-nota onexone_foto    list-format flex-change"]/a[@class="link_article"]/@href'
 
 #titulos de las notas del los titulares
-XPATH_TITLE_MAIN = '//div[@class="title"]/h1[@id="title"]/text()'
+#XPATH_TITLE_MAIN = '//div[@class="title"]/h1[@id="title"]/text()'
 
 #resumen de las notas principales o titulares
-XPATH_SUMMARY_MAIN = '//div[@class="bajada"]/h2/text()'
+#XPATH_SUMMARY_MAIN = '//div[@class="bajada"]/h2/text()'
 
 #cuerpo de la noticia principal
-XPATH_BODY_MAIN = '//div[@class="body-nota"]/p/text()'
+#XPATH_BODY_MAIN = '//div[@class="body-nota"]/p/text()'
 
 
 def parse_notice(link, today):
@@ -73,23 +72,31 @@ def parse_notice(link, today):
 try:
     response = requests.get(HOME_URL)
     if response.status_code == 200:
-        home = response.content.decode('utf-8')
-        #with open ('prueba.txt', 'w') as f:
-        #    sys.stdout = f
-        #    print(home)
-        #    sys.stdout = original_stdout
+        home = response.content.decode('utf-8', errors='replace')
+        """
+        with open ('vea.txt', 'w') as f:
+            sys.stdout = f
+            print(home)
+            sys.stdout = original_stdout
+
+        with open(f'paginaVeaLeche.txt', 'w', encoding='utf-8') as f:
+                f.write(home)
+                f.write('\n\n')
+        """
         parsed = html.fromstring(home)
-        links_to_notices = parsed.xpath(XPATH_LINK_TO_ARTICLE_MAIN)
+        totalProductos = parsed.xpath(XPATH_HOW_MANY_PRODUCTS)[0]
         print ('\n')
-        print (links_to_notices)
+        print (f'Total de productos: {totalProductos}')
         print ('\n')
-        print (f'La lista tiene {len(links_to_notices)} elementos.')
+        #print (f'La lista tiene {len(links_to_notices)} elementos.')
         today = datetime.date.today().strftime('%d-%m-%Y')
+        """
         if not os.path.isdir(today):
             os.mkdir(today)
         for link in links_to_notices:
             link = 'https://www.clarin.com' + link 
             parse_notice(link, today)
+        """
     else:
         raise ValueError(f'Error: {response.status_code}')
 except ValueError as ve:
