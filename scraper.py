@@ -7,26 +7,14 @@ import datetime             #manejo de fechas
 original_stdout = sys.stdout
 
 #supermercado Vea, categoria: Leche
-HOME_URL = 'https://www.vea.com.ar/leche?map=ft'
+HOME_URL_LECHE = 'https://www.vea.com.ar/leche?map=ft'
+HOME_URL_YERBA = 'https://www.vea.com.ar/yerba?map=ft'
 XPATH_HOW_MANY_PRODUCTS = '//div[@class="vtex-search-result-3-x-totalProducts--layout pv5 ph9 bn-ns bt-s b--muted-5 tc-s tl t-action--small"]/span/text()'
-XPATH_PRODUCTS_LIST = '//section[@class="vtex-product-summary-2-x-container vtex-product-summary-2-x-containerNormal overflow-hidden br3 h-100 w-100 flex flex-column justify-between center tc" and @style="max-width:300px"]//a/@href'
+XPATH_PRODUCTS_LIST_LECHE = '//section[@class="vtex-product-summary-2-x-container vtex-product-summary-2-x-containerNormal overflow-hidden br3 h-100 w-100 flex flex-column justify-between center tc" and @style="max-width:300px"]//a/@href'
+XPATH_PRODUCTS_LIST_YERBA = '//div[@id="gallery-layout-container"]//a/@href'
 XPATH_PRODUCT_DESCRIPTION = '//h1[@class="vtex-store-components-3-x-productNameContainer mv0 t-heading-4"]/span[@class="vtex-store-components-3-x-productBrand "]/text()'
 XPATH_PRODUCT_PRICE_INTEGER = '//span[@class="vtex-product-price-1-x-currencyContainer vtex-product-price-1-x-currencyContainer--shelf-main-selling-price"]/span[@class="vtex-product-price-1-x-currencyInteger vtex-product-price-1-x-currencyInteger--shelf-main-selling-price"]/text()'
 XPATH_PRODUCT_PRICE_DECIMAL = '//span[@class="vtex-product-price-1-x-currencyContainer vtex-product-price-1-x-currencyContainer--shelf-main-selling-price"]/span[@class="vtex-product-price-1-x-currencyFraction vtex-product-price-1-x-currencyFraction--shelf-main-selling-price"]/text()'
-
-#
-#XPATH_LINK_TO_ARTICLE_MAIN = '//article[@class="content-nota list-format twoxone_no_foto"]/a[@class="link_article"]/@href'
-#XPATH_LINK_TO_ARTICLE_SECONDARY = '//article[@class="content-nota list-format onexone_no_foto no-p"]/a[@class="link_article"]/@href'
-#XPATH_LINK_TO_ARTICLE_SECONDARY_FOTO = '//article[@class="content-nota onexone_foto    list-format flex-change"]/a[@class="link_article"]/@href'
-
-#titulos de las notas del los titulares
-#XPATH_TITLE_MAIN = '//div[@class="title"]/h1[@id="title"]/text()'
-
-#resumen de las notas principales o titulares
-#XPATH_SUMMARY_MAIN = '//div[@class="bajada"]/h2/text()'
-
-#cuerpo de la noticia principal
-#XPATH_BODY_MAIN = '//div[@class="body-nota"]/p/text()'
 
 
 def parse_products(link, today, contador):
@@ -67,7 +55,7 @@ def parse_products(link, today, contador):
 
 
 try:
-    response = requests.get(HOME_URL)
+    response = requests.get(HOME_URL_YERBA)
     if response.status_code == 200:
         home = response.content.decode('utf-8', errors='replace')
         """
@@ -84,7 +72,7 @@ try:
         totalProductos = parsed.xpath(XPATH_HOW_MANY_PRODUCTS)[0]
         print (f'Total de productos: {totalProductos}')
         print ('\n')
-        listadoProductos= parsed.xpath(XPATH_PRODUCTS_LIST)
+        listadoProductos= parsed.xpath(XPATH_PRODUCTS_LIST_YERBA)
         print(listadoProductos)
         print (f'La lista de productos tiene {len(listadoProductos)} elementos.')
         today = datetime.date.today().strftime('%d-%m-%Y')
