@@ -60,7 +60,7 @@ def parse_products(link, today, contador):
 
 
 try:
-    response = requests.get(HOME_URL_AZUCAR)
+    response = requests.get(HOME_URL_YERBA)
     if response.status_code == 200:
         home = response.content.decode('utf-8', errors='replace')
         """
