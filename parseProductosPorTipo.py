@@ -1,5 +1,8 @@
 import requests
 import lxml.html as html    #para xpath
+import sys
+
+original_stdout = sys.stdout
 
 XPATH_PRODUCTS_LIST_LECHE = '//section[@class="vtex-product-summary-2-x-container vtex-product-summary-2-x-containerNormal overflow-hidden br3 h-100 w-100 flex flex-column justify-between center tc" and @style="max-width:300px"]//a/@href'
 XPATH_PRODUCTS_LIST_YERBA = '//div[@id="gallery-layout-container"]//a/@href'
