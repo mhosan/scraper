@@ -4,6 +4,7 @@ import lxml.html as html    #para xpath
 XPATH_PRODUCTS_LIST_LECHE = '//section[@class="vtex-product-summary-2-x-container vtex-product-summary-2-x-containerNormal overflow-hidden br3 h-100 w-100 flex flex-column justify-between center tc" and @style="max-width:300px"]//a/@href'
 XPATH_PRODUCTS_LIST_YERBA = '//div[@id="gallery-layout-container"]//a/@href'
 XPATH_PRODUCTS_LIST_AZUCAR = '//div[@id="gallery-layout-container"]//a/@href'
+XPATH_PRODUCTS_LIST = '//div[@id="gallery-layout-container"]//a/@href'
 
 def parseTipoProducto(url):
     try:
@@ -24,9 +25,9 @@ def parseTipoProducto(url):
             #totalProductos = parsed.xpath(XPATH_HOW_MANY_PRODUCTS)[0]
             #print (f'Total de productos: {totalProductos}')
             #print ('\n')
-            listadoProductos= parsed.xpath(XPATH_PRODUCTS_LIST_YERBA)
-            #print('Estoy en la sub...')
-            #print(listadoProductos)
+            listadoProductos= parsed.xpath(XPATH_PRODUCTS_LIST)
+            print('Estoy en la sub...')
+            print(listadoProductos)
             #print (f'La lista de productos tiene {len(listadoProductos)} elementos.')
             return listadoProductos
         else:
