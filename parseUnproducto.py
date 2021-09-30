@@ -37,12 +37,13 @@ def parsearUnProducto(link, contador):
                 #print(listadoProductos)
                 if not os.path.isdir(today):
                     os.mkdir(today)
-                contador = 1
                 with open(f'{today}/Vea.txt', 'a', encoding='utf-8') as f:
                     f.write(f'{descripcion}: ${precioEntero},{precioDecimal} \n')
             except  IndexError as ie:
-                print(f'El error es: {ie}')
+                print('\n')
+                print(f'No se pudo leer el artículo {contador}. Probable problema de conexión. El error es: {ie}')
         else:
-            raise ValueError(f'Error: {response.status_code}')
+            #raise ValueError(f'Error: {response.status_code}')
+            print(f'Error de comunicación. El código de retorno es {response.status_code}')
     except ValueError as ve:
         print(f'El error: {ve}')
