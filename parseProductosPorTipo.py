@@ -25,8 +25,9 @@ def parseTipoProducto(url):
             #print (f'Total de productos: {totalProductos}')
             #print ('\n')
             listadoProductos= parsed.xpath(XPATH_PRODUCTS_LIST_YERBA)
-            print(listadoProductos)
-            print (f'La lista de productos tiene {len(listadoProductos)} elementos.')
+            #print('Estoy en la sub...')
+            #print(listadoProductos)
+            #print (f'La lista de productos tiene {len(listadoProductos)} elementos.')
             return listadoProductos
         else:
             raise ValueError(f'Error: {response.status_code}')

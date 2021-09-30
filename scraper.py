@@ -3,14 +3,12 @@ import lxml.html as html    #para xpath
 import sys
 import os                   #para crear carpetas
 import datetime             #manejo de fechas
-import parseTipoProducto
+import parseProductosPorTipo
 
 original_stdout = sys.stdout
 
-#supermercado Vea, categoria: Leche
-HOME_URL_LECHE = 'https://www.vea.com.ar/leche?map=ft'
-HOME_URL_YERBA = 'https://www.vea.com.ar/yerba?map=ft'
-HOME_URL_AZUCAR = 'https://www.vea.com.ar/azucar?map=ft'
+#supermercado Vea, categorias
+listaUrlsProductos = ['https://www.vea.com.ar/leche?map=ft', 'https://www.vea.com.ar/yerba?map=ft', 'https://www.vea.com.ar/azucar?map=ft']
 
 XPATH_HOW_MANY_PRODUCTS = '//div[@class="vtex-search-result-3-x-totalProducts--layout pv5 ph9 bn-ns bt-s b--muted-5 tc-s tl t-action--small"]/span/text()'
 
@@ -55,21 +53,24 @@ def parse_products(link, today, contador):
     except ValueError as ve:
         print(f'El error: {ve}')
 
-
-try:
-    listadoProductos = parseTipoProducto()
-    if type(listadoProductos is list) :
-        today = datetime.date.today().strftime('%d-%m-%Y')
-        if not os.path.isdir(today):
+for urlProducto in listaUrlsProductos:
+    try:
+        listadoProductos = parseProductosPorTipo.parseTipoProducto(urlProducto)
+        if type(listadoProductos is list) :
+            today = datetime.date.today().strftime('%d-%m-%Y')
+            print(listadoProductos)
+            """
+            if not os.path.isdir(today):
             os.mkdir(today)
-        contador = 0
-        for link in listadoProductos:
+            contador = 0
+            for link in listadoProductos:
             link = 'https://www.vea.com.ar' + link 
             parse_products(link, today, contador)
             contador = contador + 1
-    else:
-        raise ValueError(f'Error')
+            """
+        else:
+            raise ValueError(f'Error')
+    except ValueError as ve:
+        print(ve)
 
-except ValueError as ve:
-    print(ve)
 
