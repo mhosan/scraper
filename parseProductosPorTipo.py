@@ -4,7 +4,7 @@ import sys
 
 original_stdout = sys.stdout
 
-XPATH_PRODUCTS_LIST = '//div[@class="prateleira vitrine n1colunas"]//a[@class="product-image"]/@href'
+XPATH_PRODUCTS_LIST = '//div[@class="lyracons-search-result-1-x-gallery flex flex-row flex-wrap items-stretch bn ph1 na4 pl9-l"]//a[@class="vtex-product-summary-2-x-clearLink vtex-product-summary-2-x-clearLink--contentProduct h-100 flex flex-column"]/@href'
 
 def parseTipoProducto(url):
     try:
@@ -17,11 +17,11 @@ def parseTipoProducto(url):
             sys.stdout = f
             print(home)
             sys.stdout = original_stdout
-
-            with open(f'paginaVeaLeche.txt', 'w', encoding='utf-8') as f:
+            """
+            with open(f'paginaCarrefourLeche.txt', 'w', encoding='utf-8') as f:
                 f.write(home)
                 f.write('\n\n')
-            """
+            
             parsed = html.fromstring(home) #transformar el str a elementos de html
             #totalProductos = parsed.xpath(XPATH_HOW_MANY_PRODUCTS)[0]
             #print (f'Total de productos: {totalProductos}')
@@ -34,7 +34,7 @@ def parseTipoProducto(url):
             else:
                 print('Lista vacia')
             print (f'La lista de productos tiene {len(listadoProductos)} elementos.')
-            return listadoProductos
+            #return listadoProductos
             
         else:
             #raise ValueError(f'Error: {response.status_code}')

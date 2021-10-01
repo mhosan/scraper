@@ -29,7 +29,7 @@ def parsearUnProducto(link, contador):
                 print ('\n')
                 print(f'La descripción del producto {contador} es: {descripcion}')
                 precio = parsed.xpath(XPATH_PRODUCT_PRICE)[0]
-                print(f'El precio es: {precioEntero}')
+                print(f'El precio es: {precio}')
                 #precioDecimal = parsed.xpath(XPATH_PRODUCT_PRICE_DECIMAL)[0]
                 #print(f'El precio (parte decimal) es: {precioDecimal}')
                 today = datetime.date.today().strftime('%d-%m-%Y')
