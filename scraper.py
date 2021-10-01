@@ -12,7 +12,7 @@ listaUrlsProductosOriginal = ['https://www.vea.com.ar/leche?map=ft',
 'https://www.vea.com.ar/shampoo?map=ft',
 'https://www.vea.com.ar/jabon?map=ft',
 'https://www.vea.com.ar/pollo?map=ft']
-listaUrlsProductos=['https://diaonline.supermercadosdia.com.ar/busca/?ft=leche']
+listaUrlsProductos=['https://www.carrefour.com.ar/Lacteos-y-productos-frescos/Leches']
 contador = 1
 for urlProducto in listaUrlsProductos:
     try:
