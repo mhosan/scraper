@@ -4,10 +4,7 @@ import sys
 
 original_stdout = sys.stdout
 
-XPATH_PRODUCTS_LIST_LECHE = '//section[@class="vtex-product-summary-2-x-container vtex-product-summary-2-x-containerNormal overflow-hidden br3 h-100 w-100 flex flex-column justify-between center tc" and @style="max-width:300px"]//a/@href'
-XPATH_PRODUCTS_LIST_YERBA = '//div[@id="gallery-layout-container"]//a/@href'
-XPATH_PRODUCTS_LIST_AZUCAR = '//div[@id="gallery-layout-container"]//a/@href'
-XPATH_PRODUCTS_LIST = '//div[@id="gallery-layout-container"]//a/@href'
+XPATH_PRODUCTS_LIST = '//div[@class="product-shelf n18colunas"]//li[@layout="1579df47-6ea5-4570-a858-8067a35362be"]/div[@class=""]/@data-uri'
 
 def parseTipoProducto(url):
     try:
@@ -20,11 +17,11 @@ def parseTipoProducto(url):
             sys.stdout = f
             print(home)
             sys.stdout = original_stdout
-
-            with open(f'paginaVeaLeche.txt', 'w', encoding='utf-8') as f:
+            """
+            with open(f'paginaJumboLeche.txt', 'w', encoding='utf-8') as f:
                 f.write(home)
                 f.write('\n\n')
-            """
+            
             parsed = html.fromstring(home) #transformar el str a elementos de html
             #totalProductos = parsed.xpath(XPATH_HOW_MANY_PRODUCTS)[0]
             #print (f'Total de productos: {totalProductos}')

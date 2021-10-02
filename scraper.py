@@ -2,16 +2,8 @@ import lxml.html as html    #para xpath
 import parseProductosPorTipo
 import parseUnproducto
 
-#supermercado Vea, categorias
-listaUrlsProductos = ['https://www.vea.com.ar/leche?map=ft', 
-'https://www.vea.com.ar/yerba?map=ft', 
-'https://www.vea.com.ar/azucar?map=ft',
-'https://www.vea.com.ar/galletitas?map=ft',
-'https://www.vea.com.ar/coca%20cola?map=ft',
-'https://www.vea.com.ar/arroz?map=ft',
-'https://www.vea.com.ar/shampoo?map=ft',
-'https://www.vea.com.ar/jabon?map=ft',
-'https://www.vea.com.ar/pollo?map=ft']
+#supermercado Jumbo, categorias
+listaUrlsProductos = ['https://www.jumbo.com.ar/busca/?ft=leche']
 
 contador = 1
 for urlProducto in listaUrlsProductos:
