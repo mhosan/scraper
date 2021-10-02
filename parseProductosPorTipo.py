@@ -17,11 +17,11 @@ def parseTipoProducto(url):
             sys.stdout = f
             print(home)
             sys.stdout = original_stdout
-            
+            """
             with open(f'paginaWallmartLeche.txt', 'w', encoding='utf-8') as f:
                 f.write(home)
                 f.write('\n\n')
-            """
+            
             parsed = html.fromstring(home) #transformar el str a elementos de html
             #totalProductos = parsed.xpath(XPATH_HOW_MANY_PRODUCTS)[0]
             #print (f'Total de productos: {totalProductos}')
