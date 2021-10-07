@@ -4,9 +4,10 @@ import sys
 
 original_stdout = sys.stdout
 
-XPATH_PRODUCTS_LIST = '//div[@class="prateleira vitrine n1colunas"]//a[@class="product-image"]/@href'
-
+XPATH_PRODUCTS_LIST = '//div[@id="gallery-layout-container"]//a/@href'
+#XPATH_PRODUCTS_LIST = '//section[@class="vtex-product-summary-2-x-container vtex-product-summary-2-x-containerNormal overflow-hidden br3 h-100 w-100 flex flex-column justify-between center tc" and @style="max-width:300px"]//a/@href'
 def parseTipoProducto(url):
+    #print(url)
     try:
         response = requests.get(url)
         if response.status_code == 200:
@@ -17,7 +18,7 @@ def parseTipoProducto(url):
             sys.stdout = f
             print(home)
             sys.stdout = original_stdout
-
+            
             with open(f'paginaVeaLeche.txt', 'w', encoding='utf-8') as f:
                 f.write(home)
                 f.write('\n\n')
