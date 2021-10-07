@@ -8,7 +8,7 @@ XPATH_PRODUCT_PRICE = '//em[@class="valor-por"]/strong[@productindex="0"]/text()
 
 def parsearUnProducto(link, contador):
     try:
-        print(f'El link es: {link}')
+        #print(f'El link es: {link}')
         response = requests.get(link)
         if response.status_code == 200:
             producto = response.content.decode('utf-8')
@@ -30,14 +30,12 @@ def parsearUnProducto(link, contador):
                 print(f'La descripción del producto {contador} es: {descripcion}')
                 precio = parsed.xpath(XPATH_PRODUCT_PRICE)[0]
                 print(f'El precio es: {precio}')
-                #precioDecimal = parsed.xpath(XPATH_PRODUCT_PRICE_DECIMAL)[0]
-                #print(f'El precio (parte decimal) es: {precioDecimal}')
                 today = datetime.date.today().strftime('%d-%m-%Y')
                 #print(listadoProductos)
                 if not os.path.isdir(today):
                     os.mkdir(today)
-                #with open(f'{today}/Vea.txt', 'a', encoding='utf-8') as f:
-                #    f.write(f'{descripcion}: ${precioEntero},{precioDecimal} \n')
+                with open(f'{today}/Dia.txt', 'a', encoding='utf-8') as f:
+                    f.write(f'{descripcion}: ${precio} \n')
             except  IndexError as ie:
                 print('\n')
                 print(f'No se pudo leer el artículo {contador}. Probable problema de conexión. El error es: {ie}')

@@ -3,16 +3,15 @@ import parseProductosPorTipo
 import parseUnproducto
 
 #supermercado Vea, categorias
-listaUrlsProductosOriginal = ['https://www.vea.com.ar/leche?map=ft', 
-'https://www.vea.com.ar/yerba?map=ft', 
-'https://www.vea.com.ar/azucar?map=ft',
-'https://www.vea.com.ar/galletitas?map=ft',
-'https://www.vea.com.ar/coca%20cola?map=ft',
-'https://www.vea.com.ar/arroz?map=ft',
-'https://www.vea.com.ar/shampoo?map=ft',
-'https://www.vea.com.ar/jabon?map=ft',
-'https://www.vea.com.ar/pollo?map=ft']
-listaUrlsProductos=['https://diaonline.supermercadosdia.com.ar/busca/?ft=leche']
+listaUrlsProductos=['https://diaonline.supermercadosdia.com.ar/busca/?ft=leche',
+'https://diaonline.supermercadosdia.com.ar/busca/?ft=yerba',
+'https://diaonline.supermercadosdia.com.ar/busca/?ft=azucar',
+'https://diaonline.supermercadosdia.com.ar/busca/?ft=galletitas',
+'https://diaonline.supermercadosdia.com.ar/busca/?ft=gaseosas',
+'https://diaonline.supermercadosdia.com.ar/busca/?ft=arroz',
+'https://diaonline.supermercadosdia.com.ar/busca/?ft=shampoo',
+'https://diaonline.supermercadosdia.com.ar/busca/?ft=jabon'
+'https://diaonline.supermercadosdia.com.ar/busca/?ft=pollo']
 contador = 1
 for urlProducto in listaUrlsProductos:
     try:
