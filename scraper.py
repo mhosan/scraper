@@ -3,7 +3,9 @@ import parseProductosPorTipo
 import parseUnproducto
 
 #supermercado Vea, categorias
-listaUrlsProductos = ['https://www.vea.com.ar/leche?map=ft', 
+"""
+listaUrlsProductos = [
+'https://www.vea.com.ar/leche?map=ft', 
 'https://www.vea.com.ar/yerba?map=ft', 
 'https://www.vea.com.ar/azucar?map=ft',
 'https://www.vea.com.ar/galletitas?map=ft',
@@ -11,8 +13,10 @@ listaUrlsProductos = ['https://www.vea.com.ar/leche?map=ft',
 'https://www.vea.com.ar/arroz?map=ft',
 'https://www.vea.com.ar/shampoo?map=ft',
 'https://www.vea.com.ar/jabon?map=ft',
-'https://www.vea.com.ar/pollo?map=ft']
-listaUrlsProductosTest=['https://diaonline.supermercadosdia.com.ar/busca/?ft=leche']
+'https://www.vea.com.ar/pollo?map=ft'
+]
+"""
+listaUrlsProductos=['https://disco.com.ar/leche?map=ft']
 contador = 1
 for urlProducto in listaUrlsProductos:
     try:
@@ -21,7 +25,7 @@ for urlProducto in listaUrlsProductos:
         #print(listadoProductos)
         if type(listadoProductos is list and len(listadoProductos) > 0) :
             for link in listadoProductos:
-                link = 'https://www.vea.com.ar' + link 
+                link = 'https://disco.com.ar' + link 
                 parseUnproducto.parsearUnProducto(link, contador)
                 contador = contador + 1
         else:

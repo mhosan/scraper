@@ -5,7 +5,6 @@ import sys
 original_stdout = sys.stdout
 
 XPATH_PRODUCTS_LIST = '//div[@id="gallery-layout-container"]//a/@href'
-#XPATH_PRODUCTS_LIST = '//section[@class="vtex-product-summary-2-x-container vtex-product-summary-2-x-containerNormal overflow-hidden br3 h-100 w-100 flex flex-column justify-between center tc" and @style="max-width:300px"]//a/@href'
 def parseTipoProducto(url):
     #print(url)
     try:
