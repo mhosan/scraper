@@ -3,8 +3,8 @@ import lxml.html as html    #para xpath
 import os                   #para crear carpetas
 import datetime             #manejo de fechas
 
-XPATH_PRODUCT_DESCRIPTION = '//h1/div/text()'
-XPATH_PRODUCT_PRICE = '//em[@class="valor-por"]/strong[@productindex="0"]/text()'
+XPATH_PRODUCT_DESCRIPTION = '//div[@class="info-wrapper"]/h1[@class="name"]/div//text()'
+XPATH_PRODUCT_PRICE = '//em[@class="valor-por"]/strong//text()'
 
 def parsearUnProducto(link, contador):
     try:
@@ -34,7 +34,7 @@ def parsearUnProducto(link, contador):
                 #print(listadoProductos)
                 if not os.path.isdir(today):
                     os.mkdir(today)
-                with open(f'{today}/Dia.txt', 'a', encoding='utf-8') as f:
+                with open(f'{today}/Jumbo.txt', 'a', encoding='utf-8') as f:
                     f.write(f'{descripcion}: ${precio} \n')
             except  IndexError as ie:
                 print('\n')

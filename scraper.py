@@ -2,16 +2,18 @@ import lxml.html as html    #para xpath
 import parseProductosPorTipo
 import parseUnproducto
 
-#supermercado Vea, categorias
-listaUrlsProductos=['https://diaonline.supermercadosdia.com.ar/busca/?ft=leche',
-'https://diaonline.supermercadosdia.com.ar/busca/?ft=yerba',
-'https://diaonline.supermercadosdia.com.ar/busca/?ft=azucar',
-'https://diaonline.supermercadosdia.com.ar/busca/?ft=galletitas',
-'https://diaonline.supermercadosdia.com.ar/busca/?ft=gaseosas',
-'https://diaonline.supermercadosdia.com.ar/busca/?ft=arroz',
-'https://diaonline.supermercadosdia.com.ar/busca/?ft=shampoo',
-'https://diaonline.supermercadosdia.com.ar/busca/?ft=jabon'
-'https://diaonline.supermercadosdia.com.ar/busca/?ft=pollo']
+#supermercado Jumbo, categorias
+listaUrlsProductos = [
+    'https://www.jumbo.com.ar/busca/?ft=leche',
+    'https://www.jumbo.com.ar/busca/?ft=yerba',
+    'https://www.jumbo.com.ar/busca/?ft=azucar',
+    'https://www.jumbo.com.ar/busca/?ft=gaseosa',
+    'https://www.jumbo.com.ar/busca/?ft=arroz',
+    'https://www.jumbo.com.ar/busca/?ft=shampoo',
+    'https://www.jumbo.com.ar/busca/?ft=jabon',
+    'https://www.jumbo.com.ar/busca/?ft=pollo'
+    ]
+
 contador = 1
 for urlProducto in listaUrlsProductos:
     try:
