@@ -4,7 +4,7 @@ import sys
 
 original_stdout = sys.stdout
 
-XPATH_PRODUCTS_LIST = '//ul/li//a[@class="prateleira__image-link"]/@href'
+XPATH_PRODUCTS_LIST = '//ul/li//a[@class="prateleira__flags"]/@href'
 
 def parseTipoProducto(url):
     try:
