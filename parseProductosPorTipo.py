@@ -4,9 +4,10 @@ import sys
 
 original_stdout = sys.stdout
 
-XPATH_PRODUCTS_LIST = '//div[@class="product-shelf n18colunas"]//li[@layout="1579df47-6ea5-4570-a858-8067a35362be"]/div[@class=""]/@data-uri'
-
+XPATH_PRODUCTS_LIST = '//div[@class="lyracons-search-result-1-x-gallery flex flex-row flex-wrap items-stretch bn ph1 na4 pl9-l"]//a[@class="vtex-product-summary-2-x-clearLink vtex-product-summary-2-x-clearLink--contentProduct h-100 flex flex-column"]/@href'
+#XPATH_PRODUCTS_LIST= '//'
 def parseTipoProducto(url):
+    print(url)
     try:
         response = requests.get(url)
         if response.status_code == 200:
@@ -18,7 +19,7 @@ def parseTipoProducto(url):
             print(home)
             sys.stdout = original_stdout
             """
-            with open(f'paginaJumboLeche.txt', 'w', encoding='utf-8') as f:
+            with open(f'paginaCarrefourLeche.txt', 'w', encoding='utf-8') as f:
                 f.write(home)
                 f.write('\n\n')
             
@@ -26,14 +27,16 @@ def parseTipoProducto(url):
             #totalProductos = parsed.xpath(XPATH_HOW_MANY_PRODUCTS)[0]
             #print (f'Total de productos: {totalProductos}')
             #print ('\n')
+            
             listadoProductos= parsed.xpath(XPATH_PRODUCTS_LIST)
             print('\n','Productos a parsear (lista): --->','\n')
             if len(listadoProductos) > 0:
                 print(listadoProductos)
             else:
                 print('Lista vacia')
-            #print (f'La lista de productos tiene {len(listadoProductos)} elementos.')
-            return listadoProductos
+            print (f'La lista de productos tiene {len(listadoProductos)} elementos.')
+            #return listadoProductos
+            
         else:
             #raise ValueError(f'Error: {response.status_code}')
             return f'Error: {response.status_code}'

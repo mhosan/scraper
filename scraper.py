@@ -13,7 +13,7 @@ for urlProducto in listaUrlsProductos:
         #print(listadoProductos)
         if type(listadoProductos is list and len(listadoProductos) > 0) :
             for link in listadoProductos:
-                link = 'https://www.vea.com.ar' + link 
+                #link = 'https://www.vea.com.ar' + link 
                 parseUnproducto.parsearUnProducto(link, contador)
                 contador = contador + 1
         else:
