@@ -3,7 +3,16 @@ import parseProductosPorTipo
 import parseUnproducto
 
 #supermercado Jumbo, categorias
-listaUrlsProductos = ['https://www.jumbo.com.ar/busca/?ft=leche']
+listaUrlsProductos = [
+    'https://www.jumbo.com.ar/busca/?ft=leche',
+    'https://www.jumbo.com.ar/busca/?ft=yerba',
+    'https://www.jumbo.com.ar/busca/?ft=azucar',
+    'https://www.jumbo.com.ar/busca/?ft=gaseosa',
+    'https://www.jumbo.com.ar/busca/?ft=arroz',
+    'https://www.jumbo.com.ar/busca/?ft=shampoo',
+    'https://www.jumbo.com.ar/busca/?ft=jabon',
+    'https://www.jumbo.com.ar/busca/?ft=pollo'
+    ]
 
 contador = 1
 for urlProducto in listaUrlsProductos:
