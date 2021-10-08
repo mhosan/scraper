@@ -3,15 +3,16 @@ import parseProductosPorTipo
 import parseUnproducto
 
 #supermercado Vea, categorias
-listaUrlsProductos=['https://diaonline.supermercadosdia.com.ar/busca/?ft=leche',
+listaUrlsProductos=[
+'https://diaonline.supermercadosdia.com.ar/busca/?ft=leche',
 'https://diaonline.supermercadosdia.com.ar/busca/?ft=yerba',
 'https://diaonline.supermercadosdia.com.ar/busca/?ft=azucar',
 'https://diaonline.supermercadosdia.com.ar/busca/?ft=galletitas',
 'https://diaonline.supermercadosdia.com.ar/busca/?ft=gaseosas',
 'https://diaonline.supermercadosdia.com.ar/busca/?ft=arroz',
 'https://diaonline.supermercadosdia.com.ar/busca/?ft=shampoo',
-'https://diaonline.supermercadosdia.com.ar/busca/?ft=jabon'
 'https://diaonline.supermercadosdia.com.ar/busca/?ft=pollo']
+#listaUrlsProductos=['https://diaonline.supermercadosdia.com.ar/busca/?ft=jabon']
 contador = 1
 for urlProducto in listaUrlsProductos:
     try:

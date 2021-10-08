@@ -8,11 +8,11 @@ XPATH_PRODUCT_PRICE = '//em[@class="valor-por"]/strong[@productindex="0"]/text()
 
 def parsearUnProducto(link, contador):
     try:
-        #print(f'El link es: {link}')
+        print(f'El link es: {link}')
         response = requests.get(link)
         if response.status_code == 200:
             producto = response.content.decode('utf-8')
-            #producto = producto.replace('\"', '')
+            producto = producto.replace('\"', '')
             """
             with open ('noticiasPpales.txt', 'w') as file:
                 sys.stdout = file
