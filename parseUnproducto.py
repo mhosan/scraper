@@ -5,12 +5,11 @@ import datetime             #manejo de fechas
 import time
 
 XPATH_PRODUCT_DESCRIPTION = '//h1[@class="product_page" and contains(@style,"font")]/text()'
-#XPATH_PRODUCT_PRICE = '//span[@class="price_regular_precio"]/text()'
-XPATH_PRODUCT_PRICE = '//div[@class="price_regular_container"]//span[2]/text()'
+XPATH_PRODUCT_PRICE = '//div[@class="price_regular_container"]//span[@class="price_regular_precio"]/text()'
 
 def parsearUnProducto(link, contador):
     try:
-        #print(f'El link es: {link}')
+        print(f'El link es: {link}')
         response = requests.get(link)
         if response.status_code == 200:
             producto = response.content.decode('utf-8')
@@ -21,7 +20,7 @@ def parsearUnProducto(link, contador):
                 print(notice)
                 sys.stdout = original_stdout
             """
-            #with open(f'VeaLechesDetalle.txt', 'w', encoding='utf-8') as f:
+            #with open(f'CotoLecheDetalle.txt', 'w', encoding='utf-8') as f:
             #    f.write(producto)
             #    f.write('\n\n')
             parsed = html.fromstring(producto)
@@ -29,13 +28,11 @@ def parsearUnProducto(link, contador):
                 descripcion = parsed.xpath(XPATH_PRODUCT_DESCRIPTION)[0]
                 descripcion = descripcion.strip()
                 #descripcion = descripcion.replace('\"', '')
-                print ('\n')
+                #print ('\n')
                 print(f'La descripción del producto {contador} es: {descripcion}')
+                time.sleep(2)
                 precio = parsed.xpath(XPATH_PRODUCT_PRICE)[0]
-                if (precio) is list:
-                    print(f'El precio es: {precio}')
-                else:
-                    print(f'NO es una lista, es {type(precio)}')
+                print(f'El precio es: {precio}')
                 today = datetime.date.today().strftime('%d-%m-%Y')
                 #print(listadoProductos)
                 if not os.path.isdir(today):

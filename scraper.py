@@ -24,6 +24,7 @@ for urlProducto in listaUrlsProductos:
                 link = 'https://www.cotodigital3.com.ar' + link 
                 parseUnproducto.parsearUnProducto(link, contador)
                 contador = contador + 1
+                #break
         else:
             raise ValueError(f'Error en la lista de productdos a parsear')
     except ValueError as ve:
