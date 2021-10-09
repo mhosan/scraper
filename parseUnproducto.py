@@ -2,13 +2,15 @@ import requests
 import lxml.html as html    #para xpath
 import os                   #para crear carpetas
 import datetime             #manejo de fechas
+import time
 
-XPATH_PRODUCT_DESCRIPTION = '//h1/div/text()'
-XPATH_PRODUCT_PRICE = '//em[@class="valor-por"]/strong[@productindex="0"]/text()'
+XPATH_PRODUCT_DESCRIPTION = '//h1[@class="product_page" and contains(@style,"font")]/text()'
+#XPATH_PRODUCT_PRICE = '//span[@class="price_regular_precio"]/text()'
+XPATH_PRODUCT_PRICE = '//div[@class="price_regular_container"]//span[2]/text()'
 
 def parsearUnProducto(link, contador):
     try:
-        print(f'El link es: {link}')
+        #print(f'El link es: {link}')
         response = requests.get(link)
         if response.status_code == 200:
             producto = response.content.decode('utf-8')
@@ -25,20 +27,27 @@ def parsearUnProducto(link, contador):
             parsed = html.fromstring(producto)
             try:
                 descripcion = parsed.xpath(XPATH_PRODUCT_DESCRIPTION)[0]
+                descripcion = descripcion.strip()
                 #descripcion = descripcion.replace('\"', '')
                 print ('\n')
                 print(f'La descripción del producto {contador} es: {descripcion}')
                 precio = parsed.xpath(XPATH_PRODUCT_PRICE)[0]
-                print(f'El precio es: {precio}')
+                if (precio) is list:
+                    print(f'El precio es: {precio}')
+                else:
+                    print(f'NO es una lista, es {type(precio)}')
                 today = datetime.date.today().strftime('%d-%m-%Y')
                 #print(listadoProductos)
                 if not os.path.isdir(today):
                     os.mkdir(today)
-                with open(f'{today}/Dia.txt', 'a', encoding='utf-8') as f:
-                    f.write(f'{descripcion}: ${precio} \n')
+                #with open(f'{today}/Dia.txt', 'a', encoding='utf-8') as f:
+                #    f.write(f'{descripcion}: ${precio} \n')
             except  IndexError as ie:
                 print('\n')
-                print(f'No se pudo leer el artículo {contador}. Probable problema de conexión. El error es: {ie}')
+                print(f'No se pudo leer completo el artículo {contador}. Probable problema de conexión. El error es: {ie}')
+            except Exception as e:
+                print('\n')
+                print(f'error: {e}')
         else:
             #raise ValueError(f'Error: {response.status_code}')
             print(f'Error de comunicación. El código de retorno es {response.status_code}')

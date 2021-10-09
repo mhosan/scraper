@@ -4,9 +4,10 @@ import sys
 
 original_stdout = sys.stdout
 
-XPATH_PRODUCTS_LIST = '//div[@class="prateleira vitrine n1colunas"]//a[@class="product-image"]/@href'
+XPATH_PRODUCTS_LIST = '//ul[@id="products"]//div[@class="product_info_container"]//a/@href'
 
 def parseTipoProducto(url):
+    #print(f'aca se recibió la url: {url}')
     try:
         response = requests.get(url)
         if response.status_code == 200:
