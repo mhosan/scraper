@@ -40,7 +40,7 @@ def parseUnProducto(link, contador, supermercado):
                 descripcion = parsed.xpath(XPATH_PRODUCT_DESCRIPTION)[0]
                 #descripcion = descripcion.replace('\"', '')
                 print ('\n')
-                print(f'La descripción del producto {contador} es: {descripcion}')
+                print(f'{supermercado}, la descripción del producto {contador} es: {descripcion}')
                 if supermercado == "Disco" or supermercado == "Vea":
                     precioEntero = parsed.xpath(XPATH_PRODUCT_PRICE_INTEGER)[0]
                     precioDecimal = parsed.xpath(XPATH_PRODUCT_PRICE_DECIMAL)[0]
@@ -52,7 +52,7 @@ def parseUnProducto(link, contador, supermercado):
                 #print(listadoProductos)
                 if not os.path.isdir(today):
                     os.mkdir(today)
-                with open(f'{today}/Vea.txt', 'a', encoding='utf-8') as f:
+                with open(f'{today}/{supermercado}.txt', 'a', encoding='utf-8') as f:
                     f.write(f'{descripcion}: ${precio} \n')
             except  IndexError as ie:
                 print('\n')
