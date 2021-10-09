@@ -1,7 +1,7 @@
 import parseProductos
 import parseProducto
 
-"""
+
 listaUrlsProductos = [
 'https://www.vea.com.ar/leche?map=ft', 
 'https://www.vea.com.ar/yerba?map=ft', 
@@ -13,9 +13,9 @@ listaUrlsProductos = [
 'https://www.vea.com.ar/jabon?map=ft',
 'https://www.vea.com.ar/pollo?map=ft'
 ]
-"""
+
 def procesarLista():
-    listaUrlsProductos=['https://www.vea.com.ar/leche?map=ft']
+    #listaUrlsProductos=['https://www.vea.com.ar/leche?map=ft']
     contador = 1
     for urlProducto in listaUrlsProductos:
         try:

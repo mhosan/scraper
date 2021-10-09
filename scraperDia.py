@@ -1,7 +1,6 @@
 import parseProductos
 import parseProducto
 
-"""
 listaUrlsProductos=[
 'https://diaonline.supermercadosdia.com.ar/busca/?ft=leche',
 'https://diaonline.supermercadosdia.com.ar/busca/?ft=yerba',
@@ -12,9 +11,9 @@ listaUrlsProductos=[
 'https://diaonline.supermercadosdia.com.ar/busca/?ft=shampoo',
 'https://diaonline.supermercadosdia.com.ar/busca/?ft=pollo'
 ]
-"""
+
 def procesarLista():
-    listaUrlsProductos=['https://diaonline.supermercadosdia.com.ar/busca/?ft=leche']
+    #listaUrlsProductos=['https://diaonline.supermercadosdia.com.ar/busca/?ft=leche']
     contador = 1
     for urlProducto in listaUrlsProductos:
         try:
