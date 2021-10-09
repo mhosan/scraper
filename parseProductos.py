@@ -4,9 +4,15 @@ import sys
 
 original_stdout = sys.stdout
 
-XPATH_PRODUCTS_LIST = '//div[@id="gallery-layout-container"]//a/@href'
-def parseProductos(url):
-    #print(url)
+def parseProductos(url, supermercado):
+    if supermercado == "Disco":
+        XPATH_PRODUCTS_LIST = '//div[@id="gallery-layout-container"]//a/@href'
+    if supermercado == "Vea":
+        XPATH_PRODUCTS_LIST = '//div[@id="gallery-layout-container"]//a/@href'
+    if supermercado == "Dia":
+        XPATH_PRODUCTS_LIST = '//div[@class="prateleira vitrine n1colunas"]//a[@class="product-image"]/@href'
+    if supermercado == "Jumbo":
+        XPATH_PRODUCTS_LIST = '//div[@class="product-item__image-wrapper"]/a/@href'
     try:
         response = requests.get(url)
         if response.status_code == 200:

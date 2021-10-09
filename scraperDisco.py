@@ -19,13 +19,13 @@ def procesarLista():
     contador = 1
     for urlProducto in listaUrlsProductos:
         try:
-            listadoProductos = parseProductos.parseProductos(urlProducto)
+            listadoProductos = parseProductos.parseProductos(urlProducto, "Disco")
             #print('que corno me devuelve la sub:')
             #print(listadoProductos)
             if type(listadoProductos is list and len(listadoProductos) > 0) :
                 for link in listadoProductos:
                     link = 'https://disco.com.ar' + link 
-                    parseProducto.parseUnProducto(link, contador)
+                    parseProducto.parseUnProducto(link, contador, "Disco")
                     contador = contador + 1
             else:
                 raise ValueError(f'Error en la lista de productdos a parsear')
