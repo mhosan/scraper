@@ -1,8 +1,9 @@
 import requests
 import lxml.html as html    #para xpath
 import os                   #para crear carpetas
-import datetime             #manejo de fechas
-
+#import datetime             #manejo de fechas
+import json
+from datetime import datetime
 
 def parseUnProducto(link, contador, supermercado):
     if supermercado == "Disco":
@@ -48,12 +49,27 @@ def parseUnProducto(link, contador, supermercado):
                 else:
                     precio = parsed.xpath(XPATH_PRODUCT_PRICE)[0]
                 print(f'El precio es: {precio}')
-                today = datetime.date.today().strftime('%d-%m-%Y')
+                today = datetime.today().strftime('%d-%m-%Y')
                 #print(listadoProductos)
                 if not os.path.isdir(today):
                     os.mkdir(today)
-                with open(f'{today}/{supermercado}.txt', 'a', encoding='utf-8') as f:
-                    f.write(f'{descripcion}: ${precio} \n')
+                #escribe en un archivo en disco: supermercado, descripcion y precio:
+                #with open(f'{today}/{supermercado}.txt', 'a', encoding='utf-8') as f:
+                #    f.write(f'{supermercado}, {descripcion}: ${precio} \n')
+                #armar un json:
+                #today_date_time_obj = datetime.strptime(today, '%d-%m-%Y')
+                a_datetime = datetime.now()
+                fechaEnIsoFormat = a_datetime.isoformat()
+                data = {'supermercado':supermercado, 'fecha':fechaEnIsoFormat, 'descrip': descripcion, 'precio':precio}
+                #data = {}
+                #data[supermercado] = []
+                #data[supermercado].append({
+                #    'fecha' : today,
+                #    'descrip' : descripcion,
+                #    'precio' : precio
+                #}) 
+                with open (f'{today}/{supermercado}.json', 'a',encoding='utf-8') as archivo:
+                    json.dump(data, archivo)
             except  IndexError as ie:
                 print('\n')
                 print(f'No se pudo leer el artículo {contador}. Probable problema de xpath ó conexión. El error es: {ie}')

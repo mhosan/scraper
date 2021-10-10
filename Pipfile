@@ -8,6 +8,7 @@ lxml = "*"
 autopep8 = "*"
 pyinstaller = "*"
 requests = "*"
+pymongo = "*"
 
 [dev-packages]
 
