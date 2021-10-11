@@ -24,7 +24,7 @@ def procesarLista():
             #print(listadoProductos)
             if type(listadoProductos is list and len(listadoProductos) > 0) :
                 for link in listadoProductos:
-                    link = 'https://disco.com.ar' + link 
+                    link = 'https://disco.com.ar' + link
                     parseProducto.parseUnProducto(link, contador, "Disco")
                     contador = contador + 1
             else:
