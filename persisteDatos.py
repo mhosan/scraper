@@ -5,10 +5,10 @@ import persisteDatos
 
 #conexión:
 #con = MongoClient('localhost',27017)  #conexión local
-#con = MongoClient("mongodb+srv://admin:Ostruca1203@cluster0.rsnsq.mongodb.net/datosprueba?retryWrites=true&w=majority")
-#db = con.datosprueba
+con = MongoClient("mongodb+srv://admin:Ostruca1203@cluster0.rsnsq.mongodb.net/datosprueba?retryWrites=true&w=majority")
+db = con.datosprueba
 #tuiteos = db.tuiteos3
-#super = db.supermercados
+super = db.supermercados
 """
 #querys:
 #resultado = tuiteos.find({"apporigen":"Twitter for Android"}).limit(1500)
@@ -27,8 +27,9 @@ import persisteDatos
 #for elemento in resultado:
 #    print(elemento)
 def guardaDatos(data):
-    for key in data:
-        print(f'{key}: {data[key]}')
+    super.insert_one(data)
+    #for key in data:
+    #    print(f'{key}: {data[key]}')
 
     """
     try:
