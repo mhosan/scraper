@@ -8,7 +8,7 @@ lxml = "*"
 autopep8 = "*"
 pyinstaller = "*"
 requests = "*"
-pymongo = "*"
+pymongo = {extras = ["srv"], version = "*"}
 
 [dev-packages]
 
