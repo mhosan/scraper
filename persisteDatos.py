@@ -1,3 +1,4 @@
+from datetime import datetime
 from pymongo import MongoClient
 import json
 from pathlib import Path
@@ -26,7 +27,16 @@ super = db.supermercados
 #recorrer un cursor
 #for elemento in resultado:
 #    print(elemento)
-def guardaDatos(data):
+def guardaDatos(data, supermercado):
+    fecha = data['fecha']
+    fechaConvertida = datetime.fromisoformat(fecha)
+    precio = data['precio']
+    if supermercado == "Dia":
+        precio = precio[2:]
+    precio = precio.replace(',','.')
+    precioConvertido = float(precio)
+    data['fecha'] = fechaConvertida
+    data['precio'] = precioConvertido
     super.insert_one(data)
     #for key in data:
     #    print(f'{key}: {data[key]}')

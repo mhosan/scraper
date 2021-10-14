@@ -63,7 +63,7 @@ def parseUnProducto(link, contador, supermercado):
                 a_datetime = datetime.now()
                 fechaEnIsoFormat = a_datetime.isoformat()
                 data = {'supermercado':supermercado, 'fecha':fechaEnIsoFormat, 'descrip': descripcion, 'precio':precio}
-                guardaDatos(data)
+                guardaDatos(data, supermercado)
                 #data = {}
                 #data['listado'] = []
                 #data['listado'].append({
