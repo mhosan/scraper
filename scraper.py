@@ -3,7 +3,7 @@ import parseProductosPorTipo
 import parseUnproducto
 
 #supermercado Vea, categorias
-listaUrlsProductos=[
+listaUrlsProductosOriginal=[
 'https://diaonline.supermercadosdia.com.ar/busca/?ft=leche',
 'https://diaonline.supermercadosdia.com.ar/busca/?ft=yerba',
 'https://diaonline.supermercadosdia.com.ar/busca/?ft=azucar',
@@ -12,7 +12,7 @@ listaUrlsProductos=[
 'https://diaonline.supermercadosdia.com.ar/busca/?ft=arroz',
 'https://diaonline.supermercadosdia.com.ar/busca/?ft=shampoo',
 'https://diaonline.supermercadosdia.com.ar/busca/?ft=pollo']
-#listaUrlsProductos=['https://diaonline.supermercadosdia.com.ar/busca/?ft=jabon']
+listaUrlsProductos=['https://maxiconsumo.com/sucursal_capital/catalogsearch/result/?q=leche']
 contador = 1
 for urlProducto in listaUrlsProductos:
     try:
@@ -21,7 +21,6 @@ for urlProducto in listaUrlsProductos:
         #print(listadoProductos)
         if type(listadoProductos is list and len(listadoProductos) > 0) :
             for link in listadoProductos:
-                #link = 'https://www.vea.com.ar' + link 
                 parseUnproducto.parsearUnProducto(link, contador)
                 contador = contador + 1
         else:

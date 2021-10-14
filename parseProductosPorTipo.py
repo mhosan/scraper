@@ -4,7 +4,7 @@ import sys
 
 original_stdout = sys.stdout
 
-XPATH_PRODUCTS_LIST = '//div[@class="prateleira vitrine n1colunas"]//a[@class="product-image"]/@href'
+XPATH_PRODUCTS_LIST = '//ul[@class="list"]//li[@class="list-item item"]//a[@class="product photo product-item-photo"]/@href'
 
 def parseTipoProducto(url):
     try:
@@ -35,7 +35,6 @@ def parseTipoProducto(url):
                 print('Lista vacia')
             print (f'La lista de productos tiene {len(listadoProductos)} elementos.')
             return listadoProductos
-            
         else:
             #raise ValueError(f'Error: {response.status_code}')
             return f'Error: {response.status_code}'
