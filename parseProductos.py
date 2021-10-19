@@ -34,12 +34,12 @@ def parseProductos(url, supermercado):
             #print ('\n')
             
             listadoProductos= parsed.xpath(XPATH_PRODUCTS_LIST)
-            print('\n','Productos a parsear (lista): --->','\n')
+            print('\n','Productos a parsear (lista) del super: ', supermercado, ' --->','\n')
             if len(listadoProductos) > 0:
                 print(listadoProductos)
             else:
                 print('Lista vacia')
-            print (f'La lista de productos tiene {len(listadoProductos)} elementos.')
+            print (f'La lista de productos de {supermercado} tiene {len(listadoProductos)} elementos.')
             return listadoProductos
             
         else:

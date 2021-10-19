@@ -13,15 +13,15 @@ listaUrlsProductosOriginal = [
 'https://www.vea.com.ar/pollo?map=ft'
 ]
 listaUrlsProductos=[
-'https://www.vea.com.ar/gaseosas?map=ft']
+'https://www.vea.com.ar/arroz?map=ft'
+]
 
 def procesarLista():
     contador = 1
     for urlProducto in listaUrlsProductos:
         try:
             listadoProductos = parseProductos.parseProductos(urlProducto, "Disco")
-            #print('que corno me devuelve la sub:')
-            #print(listadoProductos)
+            
             if type(listadoProductos is list and len(listadoProductos) > 0) :
                 for link in listadoProductos:
                     link = 'https://disco.com.ar' + link
