@@ -17,10 +17,10 @@ contador = 0
 #elemenToFind2 = "Yerba Mate Playadito Suave 1 Kg" #dia
 #elemenToFind1 = "Galletitas Oreo Original X 354 Gr" #vea y disco
 #elemenToFind2 = "Galletitas Oreo 354 Gr." #dia
-#elemenToFind1 = "Arroz Largo Fino Gallo X 1 Kg" #vea y disco
-#elemenToFind2 = "Arroz Gallo Largo Fino 1 Kg." #dia
-elemenToFind1 = "Suprema De Pollo" #vea y disco
-elemenToFind2 = "Suprema de Pollo" #dia
+elemenToFind1 = "Arroz Largo Fino Gallo X 1 Kg" #vea y disco
+elemenToFind2 = "Arroz Gallo Largo Fino 1 Kg." #dia
+#elemenToFind1 = "Suprema De Pollo" #vea y disco
+#elemenToFind2 = "Suprema de Pollo" #dia
 
 for elemento in resultado:
     try:
@@ -33,7 +33,7 @@ for elemento in resultado:
                 anio = datetime.strftime(elemento["fecha"], "%Y")
             diaNextElement = datetime.strftime(elemento["fecha"], "%d")
             mesNextElement = datetime.strftime(elemento["fecha"], "%m")
-            """
+            """ 
             fecha = datetime.strftime(elemento["fecha"], "%d-%m-%Y")
             super = elemento["supermercado"]
             #if dia == diaNextElement and mes == mesNextElement:

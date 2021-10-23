@@ -2,7 +2,7 @@ import parseProductos
 import parseProducto
 
 
-listaUrlsProductosOriginal = [
+listaUrlsProductos = [
 'https://www.vea.com.ar/leche?map=ft',
 'https://www.vea.com.ar/yerba?map=ft', 
 'https://www.vea.com.ar/azucar?map=ft',
@@ -12,8 +12,9 @@ listaUrlsProductosOriginal = [
 'https://www.vea.com.ar/shampoo?map=ft',
 'https://www.vea.com.ar/pollo?map=ft'
 ]
-listaUrlsProductos=[
-'https://www.vea.com.ar/gaseosas?map=ft']
+listaUrlsProductosTest=[
+'https://www.vea.com.ar/gaseosas?map=ft',
+]
 
 def procesarLista():
     contador = 1
