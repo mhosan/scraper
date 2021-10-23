@@ -11,7 +11,8 @@ listaUrlsProductos=[
 'https://diaonline.supermercadosdia.com.ar/busca/?ft=shampoo',
 'https://diaonline.supermercadosdia.com.ar/busca/?ft=pollo'
 ]
-#listaUrlsProductos=['https://diaonline.supermercadosdia.com.ar/busca/?ft=leche']
+listaUrlsProductosTest=['https://diaonline.supermercadosdia.com.ar/busca/?ft=leche']
+
 def procesarLista():
     contador = 1
     for urlProducto in listaUrlsProductos:

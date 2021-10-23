@@ -13,8 +13,7 @@ listaUrlsProductos = [
 'https://www.vea.com.ar/pollo?map=ft'
 ]
 listaUrlsProductosTest=[
-'https://www.vea.com.ar/azucar?map=ft',
-'https://www.vea.com.ar/gaseosas?map=ft'
+'https://www.vea.com.ar/pollo?map=ft'
 ]
 def procesarLista():
     contador = 1
