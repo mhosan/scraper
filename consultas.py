@@ -35,4 +35,3 @@ sort = [('precio', -1)]
 resultado = super.aggregate([{'$match': {'supermercado': 'Disco'}}, {'$group' : {'_id':'Disco', 'Total Productos': {'$sum': 1}}}])
 for elemento in resultado:
     print(elemento)
-
