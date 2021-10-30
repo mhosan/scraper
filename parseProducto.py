@@ -9,12 +9,14 @@ from persisteDatos import guardaDatos
 def parseUnProducto(link, contador, supermercado):
     if supermercado == "Disco":
         XPATH_PRODUCT_DESCRIPTION = '//h1/span/text()'
-        XPATH_PRODUCT_PRICE_INTEGER = '//span[@class="vtex-product-price-1-x-currencyContainer vtex-product-price-1-x-currencyContainer--shelf-main-selling-price"]/span[@class="vtex-product-price-1-x-currencyInteger vtex-product-price-1-x-currencyInteger--shelf-main-selling-price"]/text()'
-        XPATH_PRODUCT_PRICE_DECIMAL = '//span[@class="vtex-product-price-1-x-currencyContainer vtex-product-price-1-x-currencyContainer--shelf-main-selling-price"]/span[@class="vtex-product-price-1-x-currencyFraction vtex-product-price-1-x-currencyFraction--shelf-main-selling-price"]/text()'
+        XPATH_PRODUCT_PRICE = '//div[@class="contenedor-precio"]/span/text()[2]'
+        #XPATH_PRODUCT_PRICE_INTEGER = '//span[@class="vtex-product-price-1-x-currencyContainer vtex-product-price-1-x-currencyContainer--shelf-main-selling-price"]/span[@class="vtex-product-price-1-x-currencyInteger vtex-product-price-1-x-currencyInteger--shelf-main-selling-price"]/text()'
+        #XPATH_PRODUCT_PRICE_DECIMAL = '//span[@class="vtex-product-price-1-x-currencyContainer vtex-product-price-1-x-currencyContainer--shelf-main-selling-price"]/span[@class="vtex-product-price-1-x-currencyFraction vtex-product-price-1-x-currencyFraction--shelf-main-selling-price"]/text()'
     if supermercado == "Vea":
         XPATH_PRODUCT_DESCRIPTION = '//h1/span/text()'
-        XPATH_PRODUCT_PRICE_INTEGER = '//span[@class="vtex-product-price-1-x-currencyContainer vtex-product-price-1-x-currencyContainer--shelf-main-selling-price"]/span[@class="vtex-product-price-1-x-currencyInteger vtex-product-price-1-x-currencyInteger--shelf-main-selling-price"]/text()'
-        XPATH_PRODUCT_PRICE_DECIMAL = '//span[@class="vtex-product-price-1-x-currencyContainer vtex-product-price-1-x-currencyContainer--shelf-main-selling-price"]/span[@class="vtex-product-price-1-x-currencyFraction vtex-product-price-1-x-currencyFraction--shelf-main-selling-price"]/text()'
+        XPATH_PRODUCT_PRICE = '//div[@class="contenedor-precio"]/span/text()[2]'
+        #XPATH_PRODUCT_PRICE_INTEGER = '//span[@class="vtex-product-price-1-x-currencyContainer vtex-product-price-1-x-currencyContainer--shelf-main-selling-price"]/span[@class="vtex-product-price-1-x-currencyInteger vtex-product-price-1-x-currencyInteger--shelf-main-selling-price"]/text()'
+        #XPATH_PRODUCT_PRICE_DECIMAL = '//span[@class="vtex-product-price-1-x-currencyContainer vtex-product-price-1-x-currencyContainer--shelf-main-selling-price"]/span[@class="vtex-product-price-1-x-currencyFraction vtex-product-price-1-x-currencyFraction--shelf-main-selling-price"]/text()'
     if supermercado == "Dia":
         XPATH_PRODUCT_DESCRIPTION = '//h1/div/text()'
         XPATH_PRODUCT_PRICE = '//em[@class="valor-por"]/strong[@productindex="0"]/text()'
@@ -43,12 +45,12 @@ def parseUnProducto(link, contador, supermercado):
                 #descripcion = descripcion.replace('\"', '')
                 print ('\n')
                 print(f'{supermercado}, la descripción del producto {contador} es: {descripcion}')
-                if supermercado == "Disco" or supermercado == "Vea":
-                    precioEntero = parsed.xpath(XPATH_PRODUCT_PRICE_INTEGER)[0]
-                    precioDecimal = parsed.xpath(XPATH_PRODUCT_PRICE_DECIMAL)[0]
-                    precio = precioEntero + "," + precioDecimal
-                else:
-                    precio = parsed.xpath(XPATH_PRODUCT_PRICE)[0]
+                #if supermercado == "Disco" or supermercado == "Vea":
+                #    precioEntero = parsed.xpath(XPATH_PRODUCT_PRICE_INTEGER)[0]
+                #    precioDecimal = parsed.xpath(XPATH_PRODUCT_PRICE_DECIMAL)[0]
+                #    precio = precioEntero + "," + precioDecimal
+                #else:
+                precio = parsed.xpath(XPATH_PRODUCT_PRICE)[0]
                 print(f'El precio es: {precio}')
                 today = datetime.today().strftime('%d-%m-%Y')
                 #print(listadoProductos)
