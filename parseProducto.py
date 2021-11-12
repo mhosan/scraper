@@ -35,10 +35,12 @@ def parseUnProducto(link, contador, supermercado):
                 sys.stdout = file
                 print(notice)
                 sys.stdout = original_stdout
+            
+            print('voy a imprimir')
+            with open(f'DiscoPaginaDetalleProducto.txt', 'w', encoding='utf-8') as f:
+                f.write(producto)
+                f.write('\n\n')
             """
-            #with open(f'VeaLechesDetalle.txt', 'w', encoding='utf-8') as f:
-            #    f.write(producto)
-            #    f.write('\n\n')
             parsed = html.fromstring(producto)
             try:
                 descripcion = parsed.xpath(XPATH_PRODUCT_DESCRIPTION)[0]
@@ -50,8 +52,21 @@ def parseUnProducto(link, contador, supermercado):
                 #    precioDecimal = parsed.xpath(XPATH_PRODUCT_PRICE_DECIMAL)[0]
                 #    precio = precioEntero + "," + precioDecimal
                 #else:
-                precio = parsed.xpath(XPATH_PRODUCT_PRICE)[0]
-                print(f'El precio es: {precio}')
+                try:
+                    precio = parsed.xpath(XPATH_PRODUCT_PRICE)[0]
+                    print(f'El precio es: {precio}')
+                except:
+                    print(f'El precio no se pudo obtener')
+                    for i in range(10):
+                        try:
+                            precio = parsed.xpath(XPATH_PRODUCT_PRICE)[0]
+                            print(f'Intento {i}, el precio es: {precio}')
+                            break
+                        except:
+                            print(f'Intento {i}: El precio no se pudo obtener')
+                            precio = 0
+                if precio == 0:
+                    return
                 today = datetime.today().strftime('%d-%m-%Y')
                 #print(listadoProductos)
                 #if not os.path.isdir(today):

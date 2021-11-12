@@ -39,6 +39,7 @@ def parseProductos(url, supermercado):
                 print(listadoProductos)
             else:
                 print('Lista vacia')
+                
             print (f'La lista de productos de {supermercado} tiene {len(listadoProductos)} elementos.')
             return listadoProductos
             
