@@ -1,6 +1,6 @@
 import sys
-import scraperDisco
-import scraperVea
+#import scraperDisco
+#import scraperVea
 import scraperDia
 
 original_stdout = sys.stdout
