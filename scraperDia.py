@@ -28,3 +28,6 @@ def procesarLista():
                 raise ValueError(f'Error en la lista de productdos a parsear')
         except ValueError as ve:
             print(ve)
+
+if __name__=='main':
+    procesarLista()
